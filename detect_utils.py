@@ -1,3 +1,4 @@
+from cv2 import line
 from torchvision.transforms import transforms
 import cv2
 import numpy as np
@@ -30,3 +31,20 @@ def predict(image, model, device, detection_threshold):
     boxes = pred_bboxes[pred_scores >= detection_threshold].astype(np.int32)
 
     return boxes, pred_classes, outputs[0]['labels']
+
+def draw_boxes(boxes, classes, labels, image):
+    # read the image
+    image = cv2.cvtColor(np.asarray(image), cv2.COLOR_BGR2RGB)
+    for i, box in enumerate(boxes):
+        color = COLORS[labels[i]]
+        cv2.rectangle(
+            image,
+            (int(box[0]), int(box[1])),
+            (int(box[2]), int(box[3])),
+            color, 2
+        )
+        cv2.putText(image, classes[i], (int(box[0]), int(box[1]-5)),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2,
+                    lineType=cv2.LINE_AA)
+
+    return image
