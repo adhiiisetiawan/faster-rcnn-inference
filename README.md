@@ -18,5 +18,9 @@ pip install -r requirements.txt  # install
 ### Inference Using Image
 You can inference this repository using your own images, just put your own images in input folder and run this script
 ```bash
-python3 detect.py -i input/[your-image-name+extension] -s [min-image-size] -m [backbone you want to use (mobilenetv3/resnet50)]
-``
+python3 detect.py -i input/[image-name] -s [min-image-size] -m [backbone you want to use (mobilenetv3/resnet50)]
+```
+Example usage
+```bash
+python3 detect.py -i input/image1.jpg -s 1024 -m resnet50
+```
