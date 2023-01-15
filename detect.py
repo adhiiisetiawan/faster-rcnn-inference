@@ -5,6 +5,9 @@ import detect_utils
 
 from PIL import Image
 from torchvision.models.detection import fasterrcnn_resnet50_fpn, fasterrcnn_mobilenet_v3_large_fpn
+from torchvision.models import FasterRCNN_ResNet50_FPN_Weights
+
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', help='path to input image/vide')
@@ -15,7 +18,7 @@ args = vars(parser.parse_args())
 
 if args['model'] == 'resnet50':
     print("ResNet50")
-    model = fasterrcnn_resnet50_fpn(pretrained=True, min_size=args['min_size'])
+    model = fasterrcnn_resnet50_fpn(weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT, min_size=args['min_size'])
 elif args['model'] == 'mobilenetv3':
     print("MobileNetv3")
     model = fasterrcnn_mobilenet_v3_large_fpn(pretrained=True, min_size=args['min_size'])
