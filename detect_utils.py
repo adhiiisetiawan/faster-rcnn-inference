@@ -1,9 +1,9 @@
-from cv2 import line
-from torchvision.transforms import transforms
 import cv2
 import numpy as np
 
+from torchvision.transforms import transforms
 from coco_names import COCO_INSTANCE_CATEGORY_NAMES as coco_names
+
 
 # create different color for each class
 COLORS = np.random.uniform(0, 255, size=(len(coco_names), 3))

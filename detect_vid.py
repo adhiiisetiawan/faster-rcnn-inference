@@ -1,8 +1,8 @@
-import torch
 import argparse
 import cv2
-import time
 import detect_utils
+import time
+import torch
 
 from torchvision.models.detection import fasterrcnn_resnet50_fpn, fasterrcnn_mobilenet_v3_large_fpn
 

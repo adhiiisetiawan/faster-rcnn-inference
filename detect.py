@@ -1,7 +1,7 @@
-import torch
 import argparse
 import cv2
 import detect_utils
+import torch
 
 from PIL import Image
 from torchvision.models.detection import fasterrcnn_resnet50_fpn, fasterrcnn_mobilenet_v3_large_fpn
