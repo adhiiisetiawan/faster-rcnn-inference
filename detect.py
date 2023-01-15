@@ -5,8 +5,7 @@ import detect_utils
 
 from PIL import Image
 from torchvision.models.detection import fasterrcnn_resnet50_fpn, fasterrcnn_mobilenet_v3_large_fpn
-from torchvision.models import FasterRCNN_ResNet50_FPN_Weights
-
+from torchvision.models import FasterRCNN_ResNet50_FPN_Weights, FasterRCNN_MobileNet_V3_Large_FPN_Weights
 
 
 parser = argparse.ArgumentParser()
@@ -21,7 +20,7 @@ if args['model'] == 'resnet50':
     model = fasterrcnn_resnet50_fpn(weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT, min_size=args['min_size'])
 elif args['model'] == 'mobilenetv3':
     print("MobileNetv3")
-    model = fasterrcnn_mobilenet_v3_large_fpn(pretrained=True, min_size=args['min_size'])
+    model = fasterrcnn_mobilenet_v3_large_fpn(weights=FasterRCNN_MobileNet_V3_Large_FPN_Weights.DEFAULT, min_size=args['min_size'])
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
